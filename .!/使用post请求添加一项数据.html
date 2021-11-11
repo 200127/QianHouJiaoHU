@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <button id="btnPost">使用Post请求向服务器提交一项数据</button>
+    <button id="btnget">查看一下服务器数据</button>
+    <script>
+        $(function(){
+            $('#btnPost').on('click',function(){
+                $.post('http://www.liulongbin.top:3006/api/addbook',
+                    {id:500,bookname:"导火线",author:"甑子丹",publisher:"爱奇艺播放"},
+                    function(src){
+                        console.log(src);
+                    }
+                )
+                $('#btnget').on('click',function(){
+                    $.get('http://www.liulongbin.top:3006/api/getbooks',function(res){
+                        console.log(res);
+                    })
+                })
+            })
+        })
+    </script>
+</body>
+</html>

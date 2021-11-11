@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+</head>
+<body>
+    <button id="btnPost">点击添加</button>
+    <button id="btnGet">查看</button>
+    <script>
+        $(function(){
+            $("#btnPost").on("click",function() {
+                $.post("http://www.liulongbin.top:3006/api/addbook",{bookname:'水府传',author:'0.0',publisher:'0.0'},
+                function(res) {
+                    console.log(res);
+                })
+            });
+            $("#btnGet").on("click",function(){
+                $.get("http://www.liulongbin.top:3006/api/getbooks",function(res){
+                    console.log(res);
+                })
+            })
+        })
+    </script>
+
+
+</body>
+</html>

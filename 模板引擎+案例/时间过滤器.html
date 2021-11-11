@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/template-web.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <div class="container"></div>
+
+    <script type="text/html" id="tpl-user">
+        <h1>{{name}}---{{age}}</h1>
+        {{@ test}}
+        <div>
+            {{if flag === 0}} flag值是0 {{else if flag === 1}} flage值是1 {{/if}}
+            <ul>
+                {{each boody}}
+                <li>索引是:{{$index}},循环项是:{{$value}}</li>
+                {{/each}}
+            </ul>
+
+            <h3>{{regTime | dateFormat}}</h3>
+        </div>
+    </script>
+
+    <script>
+        template.defaults.imports.dateFormat = function(date) {
+            var y = date.getFullYear();
+            var m = date.getMonth();
+            var d = date.getDate();
+            return y + '年' + m + '月' + d + '日'
+        }
+        var data = {
+            name: 'zs',
+            age: 30,
+            test: '<h3>测试原文输出</h3>',
+            flag: 1,
+            boody: ['吃饭', '睡觉', '写代码'],
+            regTime: new Date()
+        }
+        var htmlStr = template('tpl-user', data);
+        $(".container").html(htmlStr)
+    </script>
+
+</body>
+
+</html>

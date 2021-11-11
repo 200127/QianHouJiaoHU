@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 创建xhr对象
+        var xhr = new XMLHttpRequest();
+        // 调用xhr.open对象
+        xhr.open('POST', 'http://www.liulongbin.top:3006/api/addbook');
+        // 设置Content-Type属性(固定写法)
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // 调用xhr.send()函数，同时指定要发送的数据
+        xhr.send('bookname=谁付转&author=司马懿&publisher=ee');
+        // 4.监听onreadyStatechange 事件
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        }
+    </script>
+</body>
+
+</html>

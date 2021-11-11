@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <form id="form1">
+        用户名:<input type="text" name="username" autocomplete="off" /> 密 码:<input type="password" name="password" autocomplete="off" />
+        <button type="submit">提交</button>
+    </form>
+
+
+    <script>
+        var form1 = document.querySelector("#form1");
+        form1.addEventListener('submit', function(e) {
+            // 阻止默认行为
+            e.preventDefault();
+
+            // 创建formData，快速获取到form表单数据
+            var fd = new FormData(form1);
+
+            // 创建xhr
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://www.liulongbin.top:3006/api/formdata');
+            xhr.send(fd);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(JSON.parse(xhr.responseText));
+
+                }
+            }
+
+
+
+        })
+    </script>
+</body>
+
+</html>

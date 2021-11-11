@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/jquery.min.js"></script>
+    <script src="./lib/index.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <style>
+        body {
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 评论面板 -->
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">发表评论 </h3>
+        </div>
+        <form class="panel-body" id="formAddCmt">
+            <div>发言人:</div>
+            <input type="text" class="form-control" name="username" />
+            <div>评论内容:</div>
+            <textarea class="form-control" name="content"></textarea>
+            <button type="submit" class="btn btn-primary">发表言论</button>
+        </form>
+    </div>
+
+    <!-- 评论列表 -->
+
+    <ul class="list-group" id="cmt-list">
+    </ul>
+
+    <script>
+        $(function() {
+            function getComment() {
+                $.ajax({
+                    method: 'get',
+                    url: 'http://www.liulongbin.top:3006/api/cmtlist',
+                    data: {},
+                    success: function(e) {
+                        console.log(e);
+
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/itheima.js"></script>
+</head>
+
+<body>
+
+    <script>
+        // 使用自己的ajax函数发起get请求
+        itheima({
+            method: 'GET',
+            url: 'http://www.liulongbin.top:3006/api/getbooks',
+            data: {
+                // id: 1
+            },
+            success: function(e) {
+                console.log(e);
+
+            }
+        });
+        // 使用自己的ajax函数发起post请求
+        itheima({
+            method: 'POST',
+            url: 'http://www.liulongbin.top:3006/api/addbook',
+            data: {
+                bookname: '水府传',
+                author: '斯耐庵',
+                publisher: '贵州'
+            },
+            success: function(res) {
+                console.log(res);
+
+            }
+        })
+    </script>
+</body>
+
+</html>

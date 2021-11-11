@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+
+<body>
+
+    <button id="btn1">get</button>
+    <button id="btn2">post</button>
+    <script>
+        // data{POST数据}   params{GET数据}
+        $("#btn1").on('click', function() {
+            axios({
+                method: 'GET',
+                url: 'http://www.liulongbin.top:3006/api/get',
+                params: {
+                    naem: 'zs',
+                    age: '20'
+                }
+            }).then(function(e) {
+                console.log(e.data);
+            })
+        })
+        $("#btn2").on('click', function() {
+            axios({
+                method: 'POST',
+                url: 'http://www.liulongbin.top:3006/api/post',
+                data: {
+                    address: '顺义',
+                    name: '北京'
+                }
+            }).then(function(e) {
+                console.log(e.data);
+
+            })
+        })
+    </script>
+</body>
+
+</html>

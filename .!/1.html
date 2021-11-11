@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 翻转
+        function Array(){
+         var int = [];
+         for(var i = arguments.length - 1; i >= 0; i--){
+             int[int.length] = arguments[i]
+         }
+         return int;
+     }
+     var int3 = Array(1,2,3,4,5);
+     console.log(int3);
+
+     //去重
+     var arr1 = [1,2,2,3,4,4,4,4,5];
+			var arr2 = [];
+			for(var i = 0; i < arr1.length; i++) {
+				if(arr2.indexOf(arr1[i]) < 0) {
+					arr2.push(arr1[i]);
+				}
+			}
+			console.log(arr2);
+    </script>
+    <!-- 请说出 JS call bind apply的区别
+        改变this指向，apply求最大值，call翻转字符串，bind改变this后不调用函数
+
+    请说说你对JS this的理解
+        this，处于当前作用域范围内，可以调用其中对象的方法，操作快速，有效避免对象写错什么的
+
+    请说说你对JS 原型及原型链的理解
+
+
+    请说说什么是事件委托 事件委托有什么优势
+
+    CSS如何实现一个元素（可以是文本元素，也可以是节点元素）的水平垂直居中
+    text-align:center
+    margin:0px auto
+
+    请用JS实现 [1,2,2,3,4,4,4,4,5]数组去重，得到[1,2,3,4,5]
+
+     -->
+</body>
+</html>

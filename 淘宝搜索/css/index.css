@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none
+}
+
+li {
+    list-style: none
+}
+
+.maxmua {
+    width: 800px;
+    height: 100%;
+    margin: 50px auto;
+    position: relative;
+}
+
+.word {
+    width: 400px;
+    height: 100px;
+    margin: 10px auto;
+    position: relative;
+}
+
+.word a {
+    position: absolute;
+    top: 8px;
+    left: 130px;
+    font-size: 60px;
+}
+
+.search {
+    width: 600px;
+    height: 200px;
+    position: absolute;
+    top: 137px;
+    left: 125px;
+}
+
+.search-word {
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 45px;
+    left: 83px;
+}
+
+.search-word ul li {
+    float: left;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.input input {
+    width: 422px;
+    height: 25px;
+    position: absolute;
+    top: 70px;
+    left: 85px;
+}
+
+.right {
+    position: absolute;
+    top: 70.5px;
+    left: 510.5px;
+}
+
+.right button {
+    width: 60px;
+    height: 28.5px;
+    background: orange;
+    border: none;
+    cursor: pointer;
+}
+
+#suggest-list {
+    width: 484px;
+    height: 250px;
+    position: absolute;
+    top: 245px;
+    left: 210px;
+    border: 1px solid #ccc;
+    display: none;
+}
+
+.suggest-item {
+    line-height: 25px;
+    padding-left: 5px
+}
+
+.suggest-item:hover {
+    cursor: pointer;
+    background: #eee;
+}

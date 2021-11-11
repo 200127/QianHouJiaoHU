@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        #angel {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/lala.gif" alt="" id="angel">
+    <script>
+        $(function() {
+            // 不使用节流实现鼠标跟随
+            // var angel = $("#angel");
+            // $(document).on('mousemove', function(e) {
+            //     $(angel).css('left', (e.pageX - 25) + 'px').css('top', (e.pageY - 20) + 'px');
+            // })
+
+
+            // 使用节流实现鼠标跟随
+            var angel = $("#angel");
+            var timer = null; // 创建一个节流阀
+            $(document).on('mousemove', function(e) {
+                if (timer) {
+                    return //判断是否为空，如果不为空，证明上次执行间隔不足16毫秒
+                }
+                timer = setTimeout(function() {
+                    $(angel).css('left', (e.pageX - 25) + 'px').css('top', (e.pageY - 20) + 'px');
+                    console.log('ok');
+                    timer = null;
+                }, 16)
+            })
+        })
+    </script>
+</body>
+
+</html>

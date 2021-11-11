@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <button id="btnAjaxGet">使用ajax发出get请求</button>
+    <button id="btnAjaxPost">使用ajax发出post请求</button>
+    <script>
+
+        $(function(){
+            $('#btnAjaxGet').on('click',function(){
+                $.ajax({
+                    type:'GET',
+                    url:'http://www.liulongbin.top:3006/api/getbooks',
+                    success: function(res){
+                        console.log(res);
+                    }
+                })
+            })
+            $('#btnAjaxPost').on('click',function(){
+                $.ajax({
+                    type:'post',
+                    url:'http://www.liulongbin.top:3006/api/addbook',
+                    data:{
+                        bookname:"水浒传",
+                        author:"施耐庵",
+                        publisher:"上海图书出版社"
+                    },
+                    success: function(res){
+                        console.log(res);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

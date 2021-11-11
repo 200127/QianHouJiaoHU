@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // JSON 转换 JS   JSON.parse()方法
+        var obj = JSON.parse('{"a":"hello","b":"world"}');
+        console.log(obj); //{a: "hello", b: "world"}
+
+        // JS 转换 JSON  JSON.stringify()
+        var str = JSON.stringify({
+            a: "hello",
+            b: "world",
+            c: false
+        })
+        console.log(str);
+    </script>
+</body>
+
+</html>

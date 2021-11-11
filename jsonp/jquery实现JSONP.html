@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $.ajax({
+            url: 'https://query.asilu.com/aweme/info?id=6932395632497839374',
+            dataType: 'jsonp',
+            // 发送服务端的参数名称，默认值为 callback
+            jsonp: 'shabi',
+            // 自定义回调函数名称，默认值jQueryxxx格式
+            jsonpCallback: 'ehuo',
+            success: function(e) {
+                console.log(e);
+
+            }
+        })
+    </script>
+</body>
+
+</html>

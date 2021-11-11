@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <!-- jquery -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- js -->
+    <script src="js/index.js"></script>
+    <!-- 模板引擎 -->
+    <script src="js/template-web.js"></script>
+</head>
+
+<body>
+    <div class="maxmua">
+
+        <!-- 名称 -->
+        <div class="word">
+            <a href="javascrpt:;">淘宝网</a>
+        </div>
+
+        <!-- 搜索区域 -->
+        <div class="search">
+            <div class="search-word">
+                <ul>
+                    <li>宝贝</li>
+                    <li>店铺</li>
+                </ul>
+            </div>
+            <div class="input">
+                <input type="text" placeholder="请输入内容" id="ipt">
+            </div>
+            <div class=" right ">
+                <button>搜索</button>
+            </div>
+        </div>
+
+        <!-- 搜索建议 -->
+        <div id="suggest-list"></div>
+
+        <!-- 模板结构 -->
+        <script type="text/html" id="tpl-suggestList">
+            {{each result}}
+            <!-- 搜索建议项 -->
+            <div class="suggest-item">{{$value[0]}}</div>
+            {{/each}}
+        </script>
+
+    </div>
+</body>
+
+</html>

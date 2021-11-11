@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <style>
+        #imgs {
+            position: absolute;
+            top: -93px;
+            left: -200px;
+            z-index: -99;
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1.文件选择框 -->
+    <input type="file" id="file" />
+    <!-- 2.上传文件按钮 -->
+    <button id="btn">上传文件</button>
+    <br/>
+    <img src="img/1.gif" alt="" id="imgs" />
+    <img src="" alt="" id="imgs2" />
+    <script>
+        $(function() {
+            // 监听到ajax请求被发起就显示
+            $(document).ajaxStart(function() {
+                    $("#imgs").show();
+                })
+                // ajax请求完成之后关闭图片显示
+            $(document).ajaxStop(function() {
+                $("#imgs").hide();
+            })
+        })
+        $("#btn").on('click', function() {
+            // JQuery 转换为 DOM对象，并选择文件列表
+            var files = $("#file")[0].files;
+            // 是否选择了文件
+            if (files.length <= 0) {
+                alert("请选择文件");
+            } else {
+                var fd = new FormData();
+                fd.append('avatar', files[0]);
+                $.ajax({
+                    method: 'POST',
+                    url: 'http://www.liulongbin.top:3006/api/upload/avatar',
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    success: function(e) {
+                        console.log(e.url);
+                        var imgs2 = document.querySelector('#imgs2');
+                        imgs2.src = 'http://www.liulongbin.top:3006' + e.url;
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

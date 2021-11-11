@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/template-web.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <div class="container"></div>
+    <script type="text/html" id="tpl-user">
+        <h1>{{name}}---{{age}}</h1>
+    </script>
+
+    <script>
+        var data = {
+            name: 'zs',
+            age: 20
+        }
+        var htmlStr = template('tpl-user', data);
+        $(".container").html(htmlStr)
+    </script>
+
+</body>
+
+</html>
